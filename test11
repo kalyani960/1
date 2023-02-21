@@ -1,0 +1,44 @@
+package iframe;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class iframe1 
+{
+
+	public static void main(String[] args) throws InterruptedException 
+	{
+System.setProperty("Webdriver.Chrome.driver", "C:\\Users\\sarvesh\\selenium\\chromedriver.exe");
+		
+		WebDriver driver=new ChromeDriver();
+		
+		driver.get("https://www.w3schools.com/js/tryit.asp?filename=tryjs_myfirst");
+		
+		Thread.sleep(2000);
+		
+		//driver.switchTo().frame("iframeResult"); //by String Frame name
+		
+           driver.switchTo().frame("iframeResult");      //String Frame id
+		
+       // driver.switchTo().frame(driver.findElement(By.xpath("//i frame[@id='iframeResult']"))); // webElement
+		
+		  //driver.switchTo().frame(0);        //int FrameIndex
+		
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//button[@type='button']")).click();
+		Thread.sleep(2000);
+		
+		//driver.switchTo().parentFrame();   //immediate child to immediate parent
+		
+		driver.switchTo().defaultContent();    //any child to root of  parent
+		
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//a[@target='_blank']")).click();
+		
+	}
+	
+	
+}
